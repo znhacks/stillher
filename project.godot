@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Still Her"
+config/name="Still Her?"
 run/main_scene="res://scenes/MainGame.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
