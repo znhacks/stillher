@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7chainmodal001"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+
+[node name="ChainModal" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DimColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.012, 0.016, 0.024, 0.88)
+
+[node name="CenterBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -295.0
+offset_right = 280.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="ChainArt" type="TextureRect" parent="CenterBox"]
+custom_minimum_size = Vector2(520, 520)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ChainStageTitle" type="Label" parent="CenterBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.6, 0.45, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 28
+text = "Careful, dont get Jito sealed"
+horizontal_alignment = 1
+
+[node name="ChainPromptLabel" type="Label" parent="CenterBox"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.82, 0.88, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "[ Click or Press Space to continue ]"
+horizontal_alignment = 1

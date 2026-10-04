@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cwegw76e0jjga"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.025, 0.03, 0.04, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22, 0.25, 0.28, 0.7)
+
+[node name="DaySummaryModal" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0196078, 0.0313726, 0.0470588, 0.92)
+
+[node name="SummaryPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -210.0
+offset_right = 280.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SummaryPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="SummaryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.945098, 0.768627, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 32
+text = "NIGHTFALL PROTOCOL"
+horizontal_alignment = 1
+
+[node name="SummaryText" type="Label" parent="SummaryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 20
+text = "DAY 1 SURVIVED
+SANITY: 80%
+TOXICITY: 30%
+SUPPLIES: 60"
+horizontal_alignment = 1
+
+[node name="BtnNextDay" type="Button" parent="SummaryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(240, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "BEGIN NEXT MORNING ->"

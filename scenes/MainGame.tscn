@@ -1,0 +1,181 @@
+[gd_scene load_steps=16 format=3 uid="uid://c6v2jtox1main"]
+
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_gm"]
+[ext_resource type="Texture2D" path="res://assets/bg/bunker_room.png" id="2_bg"]
+[ext_resource type="Texture2D" path="res://assets/characters/hana_idle.png" id="3_hana"]
+[ext_resource type="Texture2D" path="res://assets/items/food_texture.png" id="4_food"]
+[ext_resource type="PackedScene" path="res://scenes/ui/TopPanel.tscn" id="5_toppanel"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialoguePanel.tscn" id="6_dialogpanel"]
+[ext_resource type="PackedScene" path="res://scenes/ui/StartMenuModal.tscn" id="7_startmenu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/BriefingModal.tscn" id="8_briefing"]
+[ext_resource type="PackedScene" path="res://scenes/ui/ChainModal.tscn" id="9_chainmodal"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PrologueModal.tscn" id="10_prologue"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DaySummaryModal.tscn" id="11_daysummary"]
+[ext_resource type="PackedScene" path="res://scenes/ui/EndingModal.tscn" id="12_ending"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PauseModal.tscn" id="13_pausemodal"]
+[ext_resource type="PackedScene" path="res://scenes/ui/GalleryModal.tscn" id="14_gallerymodal"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SettingsModal.tscn" id="15_settingsmodal"]
+
+[node name="MainGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gm")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CharacterLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HanaSprite" type="TextureRect" parent="CharacterLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -680.0
+offset_right = 300.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_hana")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemDisplay" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -140.0
+offset_right = 180.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_food")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EnvironmentOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0156863, 0.0392157, 0.027451, 0.22)
+
+[node name="VignetteOverlay" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopPanel" parent="UI/HUD" instance=ExtResource("5_toppanel")]
+layout_mode = 1
+
+[node name="DialoguePanel" parent="UI/HUD" instance=ExtResource("6_dialogpanel")]
+layout_mode = 1
+
+[node name="StartMenuModal" parent="UI/HUD" instance=ExtResource("7_startmenu")]
+visible = false
+layout_mode = 1
+
+[node name="BriefingModal" parent="UI/HUD" instance=ExtResource("8_briefing")]
+visible = false
+layout_mode = 1
+
+[node name="ChainModal" parent="UI/HUD" instance=ExtResource("9_chainmodal")]
+visible = false
+layout_mode = 1
+
+[node name="PrologueModal" parent="UI/HUD" instance=ExtResource("10_prologue")]
+visible = false
+layout_mode = 1
+
+[node name="DaySummaryModal" parent="UI/HUD" instance=ExtResource("11_daysummary")]
+visible = false
+layout_mode = 1
+
+[node name="EndingModal" parent="UI/HUD" instance=ExtResource("12_ending")]
+visible = false
+layout_mode = 1
+
+[node name="PauseModal" parent="UI/HUD" instance=ExtResource("13_pausemodal")]
+visible = false
+layout_mode = 1
+
+[node name="GalleryModal" parent="UI/HUD" instance=ExtResource("14_gallerymodal")]
+visible = false
+layout_mode = 1
+
+[node name="SettingsModal" parent="UI/HUD" instance=ExtResource("15_settingsmodal")]
+visible = false
+layout_mode = 1
+
+[node name="FadeOverlay" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Master"
+
+[node name="VoiceBlipPlayer" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Master"
+
+[node name="AlarmPlayer" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Master"
+
+[node name="AmbientDronePlayer" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Master"

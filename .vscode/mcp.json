@@ -1,0 +1,15 @@
+{
+  "servers": {
+    "ziva-godot": {
+      "type": "stdio",
+      "command": "C:\\Users\\hydro\\AppData\\Roaming\\ziva-local\\bin\\zivacode.exe",
+      "args": [
+        "--mcp-bridge",
+        "--godot-bin",
+        "C:/Users/hydro/.ziva/engines/godot/4.7.2/Godot.exe",
+        "--upstream",
+        "http://127.0.0.1:7012/api/mcp"
+      ]
+    }
+  }
+}

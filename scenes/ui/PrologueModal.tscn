@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://c466cjk3d7fnk"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prologue"]
+bg_color = Color(0.0470588, 0.0588235, 0.0784314, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.5, 0.6, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PrologueModal" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.025, 0.035, 0.96)
+
+[node name="PolaroidContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -240.0
+offset_right = 380.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prologue")
+
+[node name="PolaroidTexture" type="TextureRect" parent="PolaroidContainer"]
+visible = false
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardText" type="Label" parent="PolaroidContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.94, 0.98, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 28
+text = "Prologue text..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ContinuePrompt" type="Label" parent="PolaroidContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.5, 0.7, 0.85, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "[ CLICK / SPACE TO ADVANCE ]"
+horizontal_alignment = 2

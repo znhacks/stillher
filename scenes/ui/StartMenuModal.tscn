@@ -1,0 +1,232 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7startmenu001"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+[ext_resource type="Texture2D" path="res://assets/characters/hana_laugh.png" id="2_hana_laugh"]
+[ext_resource type="Texture2D" path="res://assets/bg/bad.png" id="3_ending_bad"]
+[ext_resource type="Texture2D" path="res://assets/bg/secret.png" id="4_ending_secret"]
+[ext_resource type="Texture2D" path="res://assets/bg/good.png" id="5_ending_good"]
+[ext_resource type="Shader" path="res://assets/vfx/menu_blur.gdshader" id="6_blur_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blur"]
+shader = ExtResource("6_blur_shader")
+shader_parameter/blur_amount = 3.8
+shader_parameter/tint_color = Color(0.015, 0.02, 0.03, 0.58)
+shader_parameter/vignette_intensity = 0.9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.025, 0.03, 0.04, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22, 0.25, 0.28, 0.7)
+
+[node name="StartMenuModal" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollageBackground" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ImagesHBox" type="HBoxContainer" parent="CollageBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TextureBad" type="TextureRect" parent="CollageBackground/ImagesHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("3_ending_bad")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureSecret" type="TextureRect" parent="CollageBackground/ImagesHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("4_ending_secret")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureGood" type="TextureRect" parent="CollageBackground/ImagesHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("5_ending_good")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CollageBackground"]
+copy_mode = 2
+rect = Rect2(0, 0, 1280, 720)
+
+[node name="BlurOverlay" type="ColorRect" parent="CollageBackground"]
+material = SubResource("ShaderMaterial_blur")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DimTint" type="ColorRect" parent="CollageBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.012, 0.016, 0.022, 0.35)
+
+[node name="MenuRoot" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -320.0
+offset_right = 230.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -8
+alignment = 1
+
+[node name="HanaPortrait" type="TextureRect" parent="MenuRoot"]
+custom_minimum_size = Vector2(260, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_hana_laugh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MenuPanel" type="PanelContainer" parent="MenuRoot"]
+custom_minimum_size = Vector2(440, 280)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuRoot/MenuPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuRoot/MenuPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.223529, 1, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 54
+text = "TOXIC"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.686275, 0.827451, 0.898039, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "Can't live with her. Can't live without her."
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BtnPlay" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(280, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "PLAY"
+
+[node name="BtnGallery" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(280, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 20
+text = "GALLERY"
+
+[node name="BtnLore" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(280, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 20
+text = "LORE"
+
+[node name="BtnSettings" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(280, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS"
+
+[node name="BtnExit" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(280, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 20
+text = "EXIT"
+
+[node name="PlayButtons" type="VBoxContainer" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BtnContinue" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/PlayButtons"]
+custom_minimum_size = Vector2(280, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "RESUME"
+
+[node name="BtnNewGame" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/PlayButtons"]
+custom_minimum_size = Vector2(280, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "NEW GAME"
+
+[node name="BtnBackToMain" type="Button" parent="MenuRoot/MenuPanel/MarginContainer/VBoxContainer/PlayButtons"]
+custom_minimum_size = Vector2(280, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "BACK"

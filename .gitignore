@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Tools & Local AI agent binaries (>100MB)
+addons/ziva_agent/
+*.exe
+
+# Large design source files (PSD)
+*.psd

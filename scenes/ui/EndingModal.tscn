@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://ch0k1hqrswq7y"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.025, 0.03, 0.04, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22, 0.25, 0.28, 0.7)
+
+[node name="EndingModal" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0196078, 0.027451, 0.97)
+
+[node name="EndingPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -280.0
+offset_right = 440.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndingPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="CutsceneTexture" type="TextureRect" parent="EndingPanel/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EndingBadge" type="Label" parent="EndingPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 24
+text = "[ ENDING ]"
+horizontal_alignment = 1
+
+[node name="EndingTitle" type="Label" parent="EndingPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 38
+text = "THE FAMILIAR MONSTER"
+horizontal_alignment = 1
+
+[node name="EndingDesc" type="Label" parent="EndingPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.92, 0.96, 0.98)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 20
+text = "Ending description..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="EndingStats" type="Label" parent="EndingPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.78, 0.88, 0.85)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "FINAL METRICS:"
+horizontal_alignment = 1
+
+[node name="BtnRestart" type="Button" parent="EndingPanel/VBoxContainer"]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "PLAY AGAIN"

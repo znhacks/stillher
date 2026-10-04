@@ -1,0 +1,127 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7toppanel001"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_top"]
+
+[node name="TopPanel" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_top")
+
+[node name="InkBackground" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 68
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 68
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="DayLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 24
+text = "DAY 1 / 5 [MORNING]"
+vertical_alignment = 1
+
+[node name="LocationLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.82, 0.9, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 20
+text = "[ ROOM ]"
+vertical_alignment = 1
+
+[node name="StatusBars" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="SanityContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusBars"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SanityLabel" type="Label" parent="MarginContainer/HBoxContainer/StatusBars/SanityContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "SANITY: 80%"
+vertical_alignment = 1
+
+[node name="SanityBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/StatusBars/SanityContainer"]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+size_flags_vertical = 4
+value = 80.0
+show_percentage = false
+
+[node name="ToxicityContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusBars"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ToxicityLabel" type="Label" parent="MarginContainer/HBoxContainer/StatusBars/ToxicityContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "TOXICITY: 30%"
+vertical_alignment = 1
+
+[node name="ToxicityBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/StatusBars/ToxicityContainer"]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+size_flags_vertical = 4
+value = 30.0
+show_percentage = false
+
+[node name="SuppliesContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusBars"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SuppliesLabel" type="Label" parent="MarginContainer/HBoxContainer/StatusBars/SuppliesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "SUPPLIES: 60"
+vertical_alignment = 1
+
+[node name="SuppliesBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/StatusBars/SuppliesContainer"]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+size_flags_vertical = 4
+value = 60.0
+show_percentage = false
+
+[node name="ChainsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusBars"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnViewChains" type="Button" parent="MarginContainer/HBoxContainer/StatusBars/ChainsContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "CHAINS: 0/5"
+flat = true
+
+[node name="SaveStatusLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29, 0.85, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "AUTO-SAVED"
+vertical_alignment = 1

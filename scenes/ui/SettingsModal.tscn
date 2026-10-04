@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://chf6wdpsjtlbs"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings"]
+bg_color = Color(0.025, 0.03, 0.04, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22, 0.25, 0.28, 0.7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_confirm"]
+bg_color = Color(0.04, 0.015, 0.02, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.75, 0.25, 0.25, 0.8)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_panel"]
+
+[node name="SettingsModal" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015, 0.02, 0.03, 0.92)
+
+[node name="SettingsPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -250.0
+offset_right = 260.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings")
+
+[node name="InkBackground" type="TextureRect" parent="SettingsPanel"]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.78, 0.2, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 28
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.7, 0.75, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 14
+text = "[ AUDIO CONTROL & PROGRESS MANAGEMENT ]"
+horizontal_alignment = 1
+
+[node name="AudioSection" type="VBoxContainer" parent="SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterRow" type="VBoxContainer" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MasterLabel" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection/MasterRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "MASTER VOLUME: 100%"
+
+[node name="MasterSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection/MasterRow"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="BgmRow" type="VBoxContainer" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="BgmLabel" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection/BgmRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "MUSIC: 80%"
+
+[node name="BgmSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection/BgmRow"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="SfxRow" type="VBoxContainer" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SfxLabel" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection/SfxRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "SFX: 90%"
+
+[node name="SfxSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBoxContainer/AudioSection/SfxRow"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.9
+
+[node name="Spacer" type="Control" parent="SettingsPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="ResetSection" type="VBoxContainer" parent="SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="BtnResetProgress" type="Button" parent="SettingsPanel/MarginContainer/VBoxContainer/ResetSection"]
+custom_minimum_size = Vector2(260, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "RESET ALL PROGRESS"
+
+[node name="ResetWarning" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer/ResetSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.45, 0.45, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 12
+text = "Erases active game, records & ending gallery."
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="SettingsPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="BtnCloseSettings" type="Button" parent="SettingsPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 18
+text = "BACK"
+
+[node name="ConfirmResetModal" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -140.0
+offset_right = 220.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_confirm")
+
+[node name="Margin" type="MarginContainer" parent="ConfirmResetModal"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="ConfirmResetModal/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ConfirmTitle" type="Label" parent="ConfirmResetModal/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "CONFIRM DATA PURGE"
+horizontal_alignment = 1
+
+[node name="ConfirmDesc" type="Label" parent="ConfirmResetModal/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.85, 0.95)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 15
+text = "Are you sure you want to purge all game saves and ending gallery unlocks? This cannot be undone."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="ConfirmResetModal/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="BtnConfirmPurge" type="Button" parent="ConfirmResetModal/Margin/VBox/HBox"]
+custom_minimum_size = Vector2(130, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "YES, PURGE"
+
+[node name="BtnCancelPurge" type="Button" parent="ConfirmResetModal/Margin/VBox/HBox"]
+custom_minimum_size = Vector2(130, 36)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "CANCEL"

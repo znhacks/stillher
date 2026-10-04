@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7dialogpanel001"]
+
+[ext_resource type="FontFile" path="res://assets/font/main_font.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dialog"]
+
+[node name="DialoguePanel" type="PanelContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -255.0
+offset_right = -40.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dialog")
+
+[node name="InkBackground" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NamePlate" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SpeakerLabel" type="Label" parent="MarginContainer/VBoxContainer/NamePlate"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.33, 1, 0.53, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 24
+text = "HANA"
+
+[node name="DialogueText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_font")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "..."
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ContinuePrompt" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.75, 0.85, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 17
+text = "[ CLICK TO CONTINUE ]"
+horizontal_alignment = 2
